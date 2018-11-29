@@ -20,10 +20,11 @@
  *
  * @package    course_status
  * @category   block
- * @copyright  2015, Oxford Brookes University {@link http://www.brookes.ac.uk/}
+ * @copyright  2018, Oxford Brookes University {@link http://www.brookes.ac.uk/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['privacy:metadata'] = 'The Course Status block does not store any personal data.';
 
 $string['pluginname'] = 'Course status';
 $string['coursestatus'] = 'Course status';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Course status block - version
+ * Course Status Block - Privacy Subsystem implementation
  *
  * @package    course_status
  * @category   block
@@ -24,15 +24,20 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version = 2018111800;
+namespace block_course_status\privacy;
 
-$plugin->requires = 2012120301;//Optional - minimum version number of Moodle that this plugin requires
-//(Moodle 1.9 = 2007101509; Moodle 2.0 = 2010112400; Moodle 2.1 = 2011070100; Moodle 2.2 = 2011120100; Moodle 2.4 = 2012120301)
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'block_course_status'; // Full name of the plugin (used for diagnostics): plugintype_pluginname
-//Optional - frankenstyle plugin name, strongly recommended. It is used for installation and upgrade diagnostics.
+// Privacy Subsystem implementing null_provider
+class provider implements \core_privacy\local\metadata\null_provider {
 
-$plugin->maturity = MATURITY_STABLE;//Optional - how stable the plugin is:
-//MATURITY_ALPHA, MATURITY_BETA, MATURITY_RC, MATURITY_STABLE (Moodle 2.0 and above)
-
-$plugin->release = 'v1.0.1'; //Optional - Human-readable version name
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
